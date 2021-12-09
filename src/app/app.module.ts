@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { BookListComponent } from './components/book-list/book-list.component';
@@ -16,6 +17,8 @@ import { CartDetailsComponent } from './components/cart-details/cart-details.com
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BookCreateComponent } from './components/book-create/book-create.component';
+import { BookCreateDetailsComponent } from './components/book-create-details/book-create-details.component';
+import { BookCreateFormComponent } from './components/book-create-form/book-create-form.component';
 
 //client side paging
 //import { JwPaginationComponent } from 'jw-angular-pagination';
@@ -26,6 +29,7 @@ const routes: Routes = [
   {path: 'cart-details', component: CartDetailsComponent},
   {path: 'books/:id', component: BookDetailsComponent},
   {path: 'books', component: BookListComponent},
+  {path: 'book-create-detail', component: BookCreateFormComponent},
   {path: 'search/:keyword', component: BookListComponent},
   {path: 'category/:id', component: BookListComponent},
   {path: '', redirectTo: '/books', pathMatch: 'full'},
@@ -44,6 +48,8 @@ const routes: Routes = [
     CartDetailsComponent,
     CheckoutComponent,
     BookCreateComponent,
+    BookCreateDetailsComponent,
+    BookCreateFormComponent,
 
     //client side paging
     //JwPaginationComponent
@@ -52,6 +58,7 @@ const routes: Routes = [
     BrowserModule,
     HttpClientModule,
     NgbModule,
+    FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(routes)
   ],

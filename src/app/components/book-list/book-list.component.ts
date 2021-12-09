@@ -9,6 +9,7 @@ import { CartItem } from 'src/app/common/cart-item';
 @Component({
   selector: 'app-book-list',
   templateUrl: './book-grid.component.html',
+  // templateUrl: './book-list.component.html',
   styleUrls: ['./book-list.component.css'],
   providers: [NgbPaginationConfig]
 })
@@ -18,7 +19,7 @@ export class BookListComponent implements OnInit {
   currentCategoryId: number = 1;
   previousCategoryId: number = 1;
   searchMode: boolean = false;
-  
+
   //properties for client side paging
 
   //pageOfItems: Array<Book>;
@@ -63,7 +64,7 @@ export class BookListComponent implements OnInit {
 
   handleListBooks(){
     const hasCategoryId: boolean = this._activatedRoute.snapshot.paramMap.has('id');
-    
+
     if (hasCategoryId) {
       this.currentCategoryId = +this._activatedRoute.snapshot.paramMap.get('id');
     }else {
@@ -79,9 +80,9 @@ export class BookListComponent implements OnInit {
     this.previousCategoryId = this.currentCategoryId;
 
     console.log('current page size', this.currentPage-1);
-    
-    this._bookService.getBooksPaginate(this.currentCategoryId, 
-                                        this.currentPage - 1, 
+
+    this._bookService.getBooksPaginate(this.currentCategoryId,
+                                        this.currentPage - 1,
                                         this.pageSize)
                                         .subscribe(this.processResult());
   }

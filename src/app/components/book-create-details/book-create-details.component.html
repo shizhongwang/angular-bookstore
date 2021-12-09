@@ -1,11 +1,18 @@
-<div class="row">
+<p>表单输入信息校验</p>
+<!-- <div ng-controller="myCtrl">
+     名字: <input ng-model="name"><br>
+    angularJS双向绑定：{{name}}
+</div> -->
 
-    <div class="col-lg-3">
-        <!-- category component -->
-        <app-book-category></app-book-category>
-    </div>
+<!-- <form name="myForm01">
+Email:<input type="email" name="myEmail01" ng-model="text">
+<span ng-show="myForm01.myEmail01.$error.email" style="color: red">邮箱地址不合法!</span><br>
+    数据校验结果：<span>{{myForm01.myEmail01.$error.email}}</span>
+</form> -->
+
+<div class="row">
     <!-- master details for book -->
-    <div class="col-lg-9">
+    <div class="col-lg-12">
         <div class="row">
             <!-- To display the image -->
             <div class="col-12 col-md-4">
@@ -37,8 +44,29 @@
                 </button>
             </div>
         </div>
+
+        <div class="row">
+
+
+            <!-- <input type="text" name="chargeid2" ng-model="item.chargeid2" ng-keyup="clearNoNum(item,'chargeid2')" placeholder="" class="form-control input-sm" > -->
+
+            <!-- <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm.value)">
+                <fieldset ngModelGroup="user">
+                    <input type="text" required minlength="3" name="username" [(ngModel)]="username" #userName="ngModel">
+                    <div *ngIf="userName.errors?.required">请您输入用户名</div>
+                    <div *ngIf="userName.errors?.minlength">
+                        用户名的长度必须大于 {{userName.errors?.minlength.requiredLength}}，当前的长度为 {{userName.errors?.minlength.actualLength}}
+                    </div>
+                    <input type="password" ngModel name="password">
+                </fieldset>
+                <button type="submit">提交</button>
+                <!-- {{loginForm.value | json}} -->
+            <!-- </form> --> -->
+        </div>
     </div>
 </div>
+
+
 
 <div class="container">
     <div class="row">

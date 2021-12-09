@@ -27,8 +27,18 @@ export class BookCreateComponent implements OnInit {
   //   this._router.navigateByUrl('/search/'+keyword);
   // }
 
+  showMessage(){
+    console.log('keyword');
+    this.router.navigateByUrl('book-create-detail');
+  }
+
+  // showMessage(){
+  //   alert('you click me');
+  // }
+
   createBook(){
     console.log('create book');
+
     // this.bookCategory.category_id = 1;
     this.bookCategory.id = 1;
     // this.bookCategory.category_name = "";
