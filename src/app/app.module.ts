@@ -29,7 +29,7 @@ const routes: Routes = [
   {path: 'cart-details', component: CartDetailsComponent},
   {path: 'books/:id', component: BookDetailsComponent},
   {path: 'books', component: BookListComponent},
-  {path: 'book-create-detail', component: BookCreateFormComponent},
+  {path: 'book-create-form', component: BookCreateFormComponent},
   {path: 'search/:keyword', component: BookListComponent},
   {path: 'category/:id', component: BookListComponent},
   {path: '', redirectTo: '/books', pathMatch: 'full'},

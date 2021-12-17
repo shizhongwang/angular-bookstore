@@ -22,5 +22,4 @@ export class BookCategoryComponent implements OnInit {
       data => this.bookCategories = data
     );
   }
-
 }

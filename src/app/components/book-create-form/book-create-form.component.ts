@@ -1,12 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-// import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-// import { NgModule } from '@angular/core';
-
-// @NgModule({
-//   imports: [
-//     FormsModule
-//   ],
-// })
+import { Book } from 'src/app/common/book';
+import { ActivatedRoute } from '@angular/router';
+import { BookService } from 'src/app/services/book.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { BookCategory } from '../../common/book-category';
+import {Constants} from"../../common/constants";
 
 @Component({
   selector: 'app-book-create-form',
@@ -15,6 +13,11 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class BookCreateFormComponent implements OnInit {
+  private categoryUrl = "http://localhost/book-category";
+  bookCategories: BookCategory[];
+
+  private tempCategories;
+
   public peopleInfo : any = {
     username : 'Kone.wang',
     sex:'1',
@@ -35,7 +38,44 @@ export class BookCreateFormComponent implements OnInit {
     mark:'请在这里说明你的5个优点'
   }
 
-  constructor() { }
+  book: Book = new Book();
+
+  constructor(private _activatedRoute: ActivatedRoute,
+              private _bookService: BookService,
+              private httpClient: HttpClient) { }
+
+  ngOnInit() {
+    this._activatedRoute.paramMap.subscribe(
+      () => {
+        this.getBookInfo();
+      }
+    )
+
+    this.listBookCategories();
+
+    this.tempCategories = Constants.categories;
+  }
+
+  getBookInfo(){
+    // const id: number = +this._activatedRoute.snapshot.paramMap.get('id');
+    const id: number = 1;
+
+    this._bookService.get(id).subscribe(
+      data => {
+        this.book = data;
+      }
+    );
+  }
+
+  listBookCategories(){
+    this._bookService.getBookCategories().subscribe(
+      data => this.bookCategories = data
+    );
+
+
+    console.log(this.bookCategories);     //you would get undefined, since the data is loaded unsync
+  }
+
   doSubmit(){
   /**
    * jquery操作：可用，但不推荐
@@ -45,7 +85,31 @@ export class BookCreateFormComponent implements OnInit {
    */
     console.log(this.peopleInfo);
   }
-  ngOnInit() {
+
+  bookCategory?: BookCategory;
+  onSelect(id: number, categoryName: string): void {
+    this.bookCategory = {
+      id : id,
+      categoryName: categoryName,
+    }
+    this.book.category = this.bookCategory;
   }
+
+  bookInsert() :void {
+
+  }
+
+  createBook(){
+    console.log('create book');
+
+    this.book.id = "";
+    this._bookService.createBook(this.book).subscribe(data => {
+      // console.log(data)
+      this.book = data;
+    },
+    error => console.log(error));
+    // this._activatedRoute.navigateByUrl('/search/'+keyword);
+  }
+
 }
 

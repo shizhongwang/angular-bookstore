@@ -27,9 +27,8 @@ export class BookCreateComponent implements OnInit {
   //   this._router.navigateByUrl('/search/'+keyword);
   // }
 
-  showMessage(){
-    console.log('keyword');
-    this.router.navigateByUrl('book-create-detail');
+  callBookCreateForm(){
+    this.router.navigateByUrl('book-create-form');
   }
 
   // showMessage(){
