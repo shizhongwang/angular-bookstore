@@ -17,4 +17,8 @@ export class SearchComponent implements OnInit {
     // console.log('keyword', keyword);
     this._router.navigateByUrl('/search/'+keyword);
   }
+
+  callBookCreateForm(){
+    this._router.navigateByUrl('book-create-form');
+  }
 }

@@ -2,15 +2,15 @@ import { BookCategory } from "./book-category";
 
 export class Book {
     id: string;
-    sku: string;
+    firstParty: string;
     name: string;
     description: string;
-    unitPrice: number;
+    amount: number;
     imageUrl: string;
     active: boolean;
     unitsInStock: number;
-    createdOn: Date;
-    updatedOn: Date;
+    createAt: Date;
+    updateAt: Date;
     category: BookCategory;
 
 }

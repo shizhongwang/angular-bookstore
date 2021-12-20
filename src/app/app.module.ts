@@ -16,7 +16,6 @@ import { CartStatusComponent } from './components/cart-status/cart-status.compon
 import { CartDetailsComponent } from './components/cart-details/cart-details.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { BookCreateComponent } from './components/book-create/book-create.component';
 import { BookCreateDetailsComponent } from './components/book-create-details/book-create-details.component';
 import { BookCreateFormComponent } from './components/book-create-form/book-create-form.component';
 
@@ -47,7 +46,6 @@ const routes: Routes = [
     CartStatusComponent,
     CartDetailsComponent,
     CheckoutComponent,
-    BookCreateComponent,
     BookCreateDetailsComponent,
     BookCreateFormComponent,
 

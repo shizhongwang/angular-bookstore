@@ -71,20 +71,10 @@ export class BookCreateFormComponent implements OnInit {
     this._bookService.getBookCategories().subscribe(
       data => this.bookCategories = data
     );
-
-
     console.log(this.bookCategories);     //you would get undefined, since the data is loaded unsync
   }
 
-  doSubmit(){
-  /**
-   * jquery操作：可用，但不推荐
-   * let usernameDom:any=document.getElementById('username');
-   * console.log(usrnameDom.value);
-   * 推荐下面的利用双向数据绑定获取值
-   */
-    console.log(this.peopleInfo);
-  }
+  doSubmit(){ }
 
   bookCategory?: BookCategory;
   onSelect(id: number, categoryName: string): void {
@@ -95,9 +85,6 @@ export class BookCreateFormComponent implements OnInit {
     this.book.category = this.bookCategory;
   }
 
-  bookInsert() :void {
-
-  }
 
   createBook(){
     console.log('create book');

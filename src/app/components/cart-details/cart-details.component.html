@@ -1,5 +1,5 @@
 <div class="row">
-    
+
     <div class="col-md-3">
         <!-- category component -->
         <app-book-category></app-book-category>
@@ -25,7 +25,7 @@
                                 </td>
                                 <td>
                                     <p>{{ cartItem.name }}</p>
-                                    <p>{{ cartItem.unitPrice | currency: 'INR'}}</p>
+                                    <p>{{ cartItem.amount | currency: 'INR'}}</p>
                                 </td>
                                 <td>
                                     <div class="row">
@@ -46,8 +46,8 @@
                                             </button>
                                         </div>
                                         <div class="col-md-12 mt-2">
-                                            <p>Subtotal: {{ cartItem.quantity * cartItem.unitPrice | currency: 'INR'}}</p>
-                                        </div> 
+                                            <p>Subtotal: {{ cartItem.quantity * cartItem.amount | currency: 'INR'}}</p>
+                                        </div>
                                     </div>
                                 </td>
                             </tr>
@@ -69,5 +69,5 @@
             </div>
         </div>
     </div>
-    
+
 </div>
