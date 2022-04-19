@@ -1,7 +1,7 @@
 import { Book } from './book';
 
 export class CartItem {
-    id: string;
+    id: number;
     name: string;
     imageUrl: string;
     amount: number;

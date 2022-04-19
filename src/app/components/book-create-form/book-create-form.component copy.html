@@ -61,3 +61,38 @@
     </pre>
 </div>
 
+
+
+<div class="people_list">
+    <ul>
+        <li>名称：<input class="form_input" type="text" id="username" [(ngModel)]="peopleInfo.username"></li>
+        <li>性别：
+                <!-- 这里的label 是为了点击文字能选中按钮 -->
+            <input  type="radio" name="sexs"  value=1 id="sex1" [(ngModel)]="peopleInfo.sex"><label for="sex1">男  </label> &nbsp;&nbsp;&nbsp;
+            <input  type="radio" name="sexs"  value=2 id="sex2" [(ngModel)]="peopleInfo.sex"><label for="sex2">女</label>
+        </li>
+        <li>分类：
+            <select name="city" id="city" [(ngModel)]="peopleInfo.city">
+                <option [value]="c" *ngFor="let c of peopleInfo.citylist">{{c}}</option>
+            </select>
+        </li>
+        <li>爱好：
+            <!--这里的双向数据绑定重点，难  -->
+            <span *ngFor="let h of peopleInfo.hobby;let k=index;">
+            <input [(ngModel)]="h.checked" type="checkbox" [id]="'check'+k" /><label [for]="'check'+k">{{h.title}}</label>
+            &nbsp;&nbsp;&nbsp;
+            </span>
+        </li>
+        <li>优点:
+            <textarea name="mark" id="mark" cols="30" rows="5" [(ngModel)]="peopleInfo.mark"></textarea>
+        </li>
+    </ul>
+
+    <button (click)="doSubmit()" class="submitbtn">获取表单内容</button>
+    <br><br>
+    <pre>
+        <!-- 利用转换成json的方式 -->
+        {{peopleInfo | json}}
+    </pre>
+</div>
+

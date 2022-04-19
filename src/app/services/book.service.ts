@@ -10,8 +10,10 @@ import { BookCategory } from '../common/book-category';
 })
 export class BookService {
 
-  private baseUrl = "http://localhost/books";
-  private categoryUrl = "http://localhost/book-category";
+  // private baseUrl = "http://wsbookstore:8080/books";
+  // private categoryUrl = "http://wsbookstore:8080/book-category";
+  private baseUrl = "http://localhost:8080/books";
+  private categoryUrl = "http://localhost:8080/book-category";
   bookString : string;
 
   constructor(private httpClient: HttpClient) { }
@@ -35,7 +37,7 @@ export class BookService {
 
   getBookCategories(): Observable<BookCategory[]>{
     return this.httpClient.get<GetResponseBookCategory>(this.categoryUrl).pipe(
-      map(response => response._embedded.bookCateogry)
+      map(response => response._embedded.bookCategory)
     );
   }
 
@@ -75,6 +77,6 @@ interface GetResponseBooks{
 
 interface GetResponseBookCategory{
   _embedded: {
-    bookCateogry: BookCategory[];
+    bookCategory: BookCategory[];
   }
 }

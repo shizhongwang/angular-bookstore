@@ -19,11 +19,17 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BookCreateDetailsComponent } from './components/book-create-details/book-create-details.component';
 import { BookCreateFormComponent } from './components/book-create-form/book-create-form.component';
 
+import { UploadFileService } from './services/upload-file.service';
+import { CreateUploadFileComponent } from './components/create-upload-file/create-upload-file.component';
+import { ListUploadFileComponent } from './components/list-upload-file/list-upload-file.component';
+import { DetailsUploadFileComponent } from './components/details-upload-file/details-upload-file.component';
 //client side paging
 //import { JwPaginationComponent } from 'jw-angular-pagination';
 
 
 const routes: Routes = [
+  {path: 'upload-files', component: CreateUploadFileComponent},
+
   {path: 'checkout', component: CheckoutComponent},
   {path: 'cart-details', component: CartDetailsComponent},
   {path: 'books/:id', component: BookDetailsComponent},
@@ -49,6 +55,9 @@ const routes: Routes = [
     BookCreateDetailsComponent,
     BookCreateFormComponent,
 
+    CreateUploadFileComponent,
+    ListUploadFileComponent,
+    DetailsUploadFileComponent
     //client side paging
     //JwPaginationComponent
   ],
@@ -61,7 +70,8 @@ const routes: Routes = [
     RouterModule.forRoot(routes)
   ],
   providers: [
-    BookService
+    BookService,
+    UploadFileService
   ],
   bootstrap: [AppComponent]
 })

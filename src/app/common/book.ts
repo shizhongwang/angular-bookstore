@@ -1,7 +1,7 @@
 import { BookCategory } from "./book-category";
 
 export class Book {
-    id: string;
+    id: number;
     firstParty: string;
     name: string;
     description: string;
@@ -11,6 +11,5 @@ export class Book {
     unitsInStock: number;
     createAt: Date;
     updateAt: Date;
-    category: BookCategory;
-
+    categoryId: number;
 }

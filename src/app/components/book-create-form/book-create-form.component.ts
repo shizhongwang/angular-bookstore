@@ -13,30 +13,7 @@ import {Constants} from"../../common/constants";
 })
 
 export class BookCreateFormComponent implements OnInit {
-  private categoryUrl = "http://localhost/book-category";
   bookCategories: BookCategory[];
-
-  private tempCategories;
-
-  public peopleInfo : any = {
-    username : 'Kone.wang',
-    sex:'1',
-    citylist:['安徽','北京','上海','广州'],
-    city:'上海',
-    hobby:[{
-      title:'吃饭',
-      checked:false
-    },
-    {
-      title:'睡觉',
-      checked:false
-    },
-    {
-      title:'敲代码',
-      checked:true
-    }],
-    mark:'请在这里说明你的5个优点'
-  }
 
   book: Book = new Book();
 
@@ -52,8 +29,6 @@ export class BookCreateFormComponent implements OnInit {
     )
 
     this.listBookCategories();
-
-    this.tempCategories = Constants.categories;
   }
 
   getBookInfo(){
@@ -82,14 +57,14 @@ export class BookCreateFormComponent implements OnInit {
       id : id,
       categoryName: categoryName,
     }
-    this.book.category = this.bookCategory;
+    this.book.categoryId = this.bookCategory.id;
   }
 
 
   createBook(){
     console.log('create book');
 
-    this.book.id = "";
+    this.book.id = 0;
     this._bookService.createBook(this.book).subscribe(data => {
       // console.log(data)
       this.book = data;
