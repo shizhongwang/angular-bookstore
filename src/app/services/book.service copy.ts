@@ -5,9 +5,6 @@ import { map } from 'rxjs/operators';
 import { Book } from '../common/book';
 import { BookCategory } from '../common/book-category';
 
-import axios from 'axios';
-import { AxiosInstance } from 'axios';
-
 @Injectable({
   providedIn: 'root'
 })
@@ -19,33 +16,7 @@ export class BookService {
   // private categoryUrl = "http://localhost:8080/book-category";
   bookString : string;
 
-  private axiosClient: AxiosInstance;
-
-  getBookCategories1(): Observable<BookCategory[]>{
-    return this.httpClient.get<GetResponseBookCategory>(this.categoryUrl).pipe(
-      map(response => response._embedded.bookCategory)
-    );
-  }
-
-  public async getBookCategories2():Promise<any> {
-    try {
-      let response = await this.axiosClient.request({
-        // url: `${this.clpEndpoint}/${serviceName}/message`,
-        url: "http://49.7.182.249:9200/book-category",
-        headers: {
-          'Content-type': 'application/json',
-          'Access-Control-Allow-Origin': '*'
-        },
-        method: 'get',
-      });
-    } catch(err) {
-      throw err;
-    }
-  }
-
-  constructor(private httpClient: HttpClient) {
-    this.axiosClient = axios.create();
-  }
+  constructor(private httpClient: HttpClient) { }
 
   createBook(book: Book): Observable<Book> {
     this.bookString = JSON.stringify(book);

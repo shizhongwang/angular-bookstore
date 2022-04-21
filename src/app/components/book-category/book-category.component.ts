@@ -18,8 +18,11 @@ export class BookCategoryComponent implements OnInit {
   }
 
   listBookCategories(){
+    // this.bookCategories = this._bookService.getBookCategories2();
+
     this._bookService.getBookCategories().subscribe(
       data => this.bookCategories = data
     );
+    console.log('listBookCategories', this.bookCategories);
   }
 }
